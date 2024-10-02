@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter</title>
+  <style>
+    body{
+      padding: 60px;
+      background: linear-gradient(to right, rgb(159 216 215), rgb(40 208 78), rgb(159 216 215));
+    }
+    .main{
+      height: 20rem;
+      width: 40rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: auto;
+      border: 1px solid black;
+      padding: 4rem;
+      background: linear-gradient(to right, rgb(216, 159, 159), rgb(208, 40, 40), rgb(216, 159, 159));
+    }
+    h1{
+      text-align: center;
+      padding: 2rem;
+      padding-top: 0px;
+    }
+    input{
+      width: 15rem;
+      height: 2rem;
+      font-size: 1.5rem;
+    }
+    .input{
+      display: flex;
+      flex-direction: column;
+      
+    }
+    label{
+      text-align: center;
+      font-size: 2rem;
+      padding: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    Temperature Converter
+  </h1>
+  <div class="main">
+    <div class="input">
+      <label>Celcius</label>
+      <input type="number" value="0" id="cel" class="inp" placeholder="value">
+    </div>
+    <div class="input">
+      <label>Farenhight</label>
+      <input type="number" value="32" id="far" class="inp" placeholder="value">
+    </div>
+  </div>
+
+  <script>
+    var cel=document.getElementById("cel");
+    var far=document.getElementById("far");
+
+    cel.addEventListener("input" , function (){
+      var x= cel.value;
+      var y=(x*9/5) + 32;
+      if(!Number.isInteger(y)){
+        y=y.toFixed(4);
+      }
+      far.value=y;
+    });
+    far.addEventListener("input" , function (){
+      var x= cel.value;
+      var y=(x-32)*5/9;
+      if(!Number.isInteger(y)){
+        y=y.toFixed(4);
+      }
+      cel.value=y;
+    });
+
+  </script>
+</body>
+</html>
